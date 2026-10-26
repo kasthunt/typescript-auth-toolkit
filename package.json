@@ -1,0 +1,37 @@
+{
+  "name": "@kasthunt/typescript-auth-toolkit",
+  "version": "0.1.0",
+  "description": "Small, typed authentication utilities: Argon2id, opaque tokens, TOTP, recovery codes and authenticated secret encryption.",
+  "type": "module",
+  "license": "MIT",
+  "author": "kasthunt",
+  "repository": { "type": "git", "url": "https://github.com/kasthunt/typescript-auth-toolkit.git" },
+  "homepage": "https://github.com/kasthunt/typescript-auth-toolkit#readme",
+  "bugs": { "url": "https://github.com/kasthunt/typescript-auth-toolkit/issues" },
+  "keywords": ["typescript", "authentication", "argon2id", "totp", "mfa"],
+  "engines": { "node": ">=22" },
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "docs", "LICENSE", "README.md", "SECURITY.md"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run --maxWorkers=2",
+    "test:coverage": "vitest run --coverage --maxWorkers=2",
+    "demo": "tsx examples/demo.ts",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build && npm run demo",
+    "prepack": "npm run build"
+  },
+  "dependencies": { "argon2": "0.45.1" },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.19.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "eslint": "10.12.0",
+    "tsx": "4.23.15",
+    "typescript": "6.0.2",
+    "typescript-eslint": "8.71.2",
+    "vitest": "5.0.5"
+  }
+}
